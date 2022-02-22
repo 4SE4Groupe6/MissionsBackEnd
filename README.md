@@ -1,2 +1,2 @@
-# SpringBackEnd
-Backend phase of our project developped by Spring Boot 
+# MissionsBackEnd 
+Backend phase of our project missions.com developped by Spring Boot.
