@@ -1,4 +1,4 @@
-package missionbackend;
+package com.tn.missionbackend;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -7,7 +7,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 class MissionBackEndApplicationTests {
 
     @Test
-    void contextLoads() {
-    }
+	void contextLoads() {
+	}
 
 }

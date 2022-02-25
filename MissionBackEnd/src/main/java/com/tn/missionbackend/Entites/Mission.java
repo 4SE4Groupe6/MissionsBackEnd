@@ -1,5 +1,4 @@
-package com.tn.missionbackend.entites;
-
+package com.tn.missionbackend.Entites;
 import lombok.*;
 
 import java.io.Serializable;
@@ -23,22 +22,15 @@ import javax.persistence.TemporalType;
 @Setter
 @ToString
 @EqualsAndHashCode
-public class Client implements Serializable {
+public class Mission implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long idClient;
-    private String nom;
-    private String prenom;
+    private long idMission;
+    private String destination;
+    private String TitleMission;
     @Temporal(TemporalType.DATE)
-    private Date DateNaissance;
-    private String email;
-    private String password;
-    @Enumerated(EnumType.STRING)
-    private CategorieClient categorieClient;
-    @Enumerated(EnumType.STRING)
-    private Profession profession;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "client")
-    private Set<Facture> factures;
+    private Date start_date;
+    @Temporal(TemporalType.DATE)
+    private Date end_date;
 
-    public class Mission {
-    }
+}
