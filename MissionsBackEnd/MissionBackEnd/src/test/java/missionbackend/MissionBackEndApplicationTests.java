@@ -1,10 +1,10 @@
-package tn.esprit.missionsbackend;
+package missionbackend;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class MissionsBackEndApplicationTests {
+class MissionBackEndApplicationTests {
 
     @Test
     void contextLoads() {
