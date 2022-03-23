@@ -19,15 +19,27 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 	BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 	auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder);}
+	@SuppressWarnings("unused")
 	@Override
+
 	protected void configure(HttpSecurity http) throws Exception {
+		String[] statiStrings  =  {
+				"/css/**",
+				"/images/**",
+				"/fonts/**",
+				"/scripts/**",
+		};
 	http.authorizeRequests() .antMatchers("/registration").permitAll()
 	.antMatchers("/getRevenuBrutProduit/{idProduit}/{startDate}/{endDate}").access("hasRole('SUPERADMIN')")
 	.antMatchers("/get**}").access("hasRole('ADMIN')")
 	.antMatchers("/invitation/**").permitAll()
-	.antMatchers("/uploadPictureToUser/**").permitAll()
-	
+	.antMatchers("/addph/**").permitAll()
 	.antMatchers("/SpringSecurity/**").permitAll()
+	.antMatchers("/uploadPictureToUser/**").permitAll()
+	.antMatchers("/uploadPictureToInvitation/**").permitAll()
+	.antMatchers("/uploadPicturee/**").permitAll()
+	.antMatchers("/css/**").permitAll()
+	.antMatchers("/images/**").permitAll()
 
 	.antMatchers("/retrieve-all-clients").access("hasRole('ADMIN')")
 	.anyRequest()
