@@ -1,12 +1,10 @@
 package tn.esprit.spring.Controller;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import tn.esprit.spring.Repository.UserRepository;
 import tn.esprit.spring.entities.User;
 import tn.esprit.spring.services.UserService;
 
@@ -14,8 +12,6 @@ import tn.esprit.spring.services.UserService;
 public class HomeController {
 @Autowired
 UserService userService;
-UserRepository user;
-
 @PostMapping("/registration")
 public String createNewUser( @RequestBody User user) {
 String msg="";
@@ -30,6 +26,4 @@ System.out.println("test");
 
 
 
-return msg; }
-
-}
+return msg; }}
