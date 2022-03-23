@@ -27,20 +27,19 @@ public class User implements Serializable {
 
 	@Id
 	@GeneratedValue (strategy = GenerationType.IDENTITY)
-	private int userId;
+	private int idU;
 	private String userName;
-	private String email;
+	private String email; 
 	private String password;
 	private String name;
 	private String lastName;
-	private String picture;
 	private String PicturePath;
+	private String Picture;
 	//tu peux accider au site si seullement si vous activer apartir d'un lien qui envoyer sur email
 	private Boolean active;
 	@ManyToMany(cascade = CascadeType.PERSIST,
 			fetch = FetchType.EAGER)
 			private Set<Role> roles;
-
 
 
 	
