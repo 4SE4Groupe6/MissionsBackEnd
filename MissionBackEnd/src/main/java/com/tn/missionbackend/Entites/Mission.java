@@ -1,4 +1,5 @@
 package com.tn.missionbackend.Entites;
+
 import lombok.*;
 import org.springframework.http.HttpStatus;
 
@@ -36,13 +37,12 @@ public class Mission implements Serializable {
     private String destination;
     @NotEmpty
     private String TitleMission;
+    private String picture;
+    //private String PicturePath;
     @Temporal(TemporalType.DATE)
     private Date start_date;
     @Temporal(TemporalType.DATE)
     private Date end_date;
-    @Lob
-    @Column(columnDefinition = "MEDIUMBLOB")
-    private String image;
 
     public Mission(HttpStatus created, Mission mission) {
     }

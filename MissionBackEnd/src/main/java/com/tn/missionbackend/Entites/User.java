@@ -1,4 +1,5 @@
 package com.tn.missionbackend.Entites;
+
 import lombok.*;
 
 import java.io.Serializable;
@@ -21,5 +22,5 @@ public class User implements Serializable {
     @Enumerated(EnumType.STRING)
     private Role role;
     @ManyToOne(cascade = CascadeType.ALL)
-   private Mission mission;
+    private Mission mission;
 }
