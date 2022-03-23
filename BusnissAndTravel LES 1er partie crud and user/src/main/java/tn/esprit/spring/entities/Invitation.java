@@ -28,9 +28,10 @@ import lombok.experimental.FieldDefaults;
 public class Invitation implements Serializable {
 	@Id
 	@GeneratedValue (strategy = GenerationType.IDENTITY)
-	long id;
+	long invitationId;
 	String destination;
 	 Date date; 
 	
-	 
+	String picture;
+
 }
