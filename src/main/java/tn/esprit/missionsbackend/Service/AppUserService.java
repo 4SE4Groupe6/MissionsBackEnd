@@ -2,6 +2,7 @@ package tn.esprit.missionsbackend.Service;
 
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import tn.esprit.missionsbackend.Entity.AppUser;
 import tn.esprit.missionsbackend.Repository.AppUserRepository;
@@ -18,6 +19,8 @@ public class AppUserService {
 
     @Autowired
     AppUserRepository appUserRepository;
+
+    BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
 
     // sign up of new user : with checking if email exists , if mail is right , if password is right
 
@@ -52,6 +55,8 @@ public class AppUserService {
         }
 
         if (!verify){
+            user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+            user.setActive(true);
             appUserRepository.save(user);
             result.put("user successfully signed up !", user);
         }

@@ -5,6 +5,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Set;
 
 @Entity @Data @NoArgsConstructor @Table
 public class AppUser implements Serializable {
@@ -28,8 +29,10 @@ public class AppUser implements Serializable {
     @Column
     private String password;
 
-    @Enumerated(EnumType.STRING)
     @Column
-    private Role role;
+    private Boolean active;
+
+    @ManyToMany(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
+    private Set<Role> roles;
 
 }
