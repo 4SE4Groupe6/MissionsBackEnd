@@ -12,3 +12,4 @@ public enum RoleName implements GrantedAuthority {
         return "Role_" + name();
     }
 }
+

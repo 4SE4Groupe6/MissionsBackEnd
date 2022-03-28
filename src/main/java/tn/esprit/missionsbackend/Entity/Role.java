@@ -7,14 +7,17 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.io.Serializable;
 
-@Entity @Data @AllArgsConstructor @NoArgsConstructor
+@Entity
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Role implements Serializable {
-        private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-        @Id
-        @GeneratedValue(strategy = GenerationType.AUTO)
-        private int idRole;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int idRole;
 
-        @Enumerated(EnumType.STRING)
-        private RoleName role;
+    @Enumerated(EnumType.STRING)
+    private RoleName role;
 }

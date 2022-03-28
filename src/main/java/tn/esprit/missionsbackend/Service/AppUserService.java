@@ -2,10 +2,13 @@ package tn.esprit.missionsbackend.Service;
 
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.SimpleMailMessage;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import tn.esprit.missionsbackend.Entity.AppUser;
+import tn.esprit.missionsbackend.Entity.ConfirmationToken;
 import tn.esprit.missionsbackend.Repository.AppUserRepository;
+import tn.esprit.missionsbackend.Repository.ConfirmationTokenRepository;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -19,6 +22,12 @@ public class AppUserService {
 
     @Autowired
     AppUserRepository appUserRepository;
+    @Autowired
+    private ConfirmationTokenRepository confirmationTokenRepository;
+
+    @Autowired
+    private EmailSenderService emailSenderService;
+
 
     BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
 
@@ -56,14 +65,44 @@ public class AppUserService {
 
         if (!verify){
             user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
-            user.setActive(true);
             appUserRepository.save(user);
-            result.put("user successfully signed up !", user);
+
+            ConfirmationToken confirmationToken = new ConfirmationToken(user);
+
+            confirmationTokenRepository.save(confirmationToken);
+
+            SimpleMailMessage mailMessage = new SimpleMailMessage();
+            mailMessage.setTo(user.getEmail());
+            mailMessage.setSubject("Complete Registration!");
+            mailMessage.setFrom("amirbrd13@gmail.com");
+            mailMessage.setText("This is your account confirmation token : "+confirmationToken.getConfirmationToken());
+
+            emailSenderService.sendEmail(mailMessage);
+
+            result.put("A verification link has been sent in order to activate your account !", user);
         }
 
         return result;
 
     }
+
+    public String confirmationUserAccount(String confirmationToken){
+        String message ="";
+        ConfirmationToken token = confirmationTokenRepository.findByConfirmationToken(confirmationToken);
+        if (token!=null){
+            AppUser user = appUserRepository.findByUsername(token.getUser().getUsername());
+            user.setActive(true);
+            appUserRepository.save(user);
+            message = "Activated account!";
+        }
+        else {
+                message = "error !";
+        }
+        return message;
+
+    }
+
+
 
     // password form
     private static boolean checkString(String str) {
@@ -115,5 +154,7 @@ public class AppUserService {
     public AppUser userDetails(Long idUser){
         return appUserRepository.findById(idUser).get();
     }
+
+
 
 }

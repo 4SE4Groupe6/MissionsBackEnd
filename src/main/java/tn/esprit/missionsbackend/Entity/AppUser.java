@@ -18,6 +18,9 @@ public class AppUser implements Serializable {
     private Long IdUser;
 
     @Column
+    private String username;
+
+    @Column
     private String firstName;
 
     @Column
@@ -30,7 +33,7 @@ public class AppUser implements Serializable {
     private String password;
 
     @Column
-    private Boolean active;
+    private Boolean active= false;
 
     @ManyToMany(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
     private Set<Role> roles;
