@@ -12,6 +12,7 @@ import tn.esprit.spring.entities.Invitation;
 public class InvitationService implements IInvitationService {
 @Autowired
 InvitationRepository inv ;
+
 	@Override
 	public List<Invitation> retrieveAllInvitations() {
 		// TODO Auto-generated method stub
@@ -36,5 +37,7 @@ InvitationRepository inv ;
 		return inv.save(I);
 	}
 	
+	
+
 
 }

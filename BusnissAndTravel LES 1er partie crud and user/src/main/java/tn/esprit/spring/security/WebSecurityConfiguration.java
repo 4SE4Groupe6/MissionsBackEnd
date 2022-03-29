@@ -37,9 +37,20 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
 	.antMatchers("/SpringSecurity/**").permitAll()
 	.antMatchers("/uploadPictureToUser/**").permitAll()
 	.antMatchers("/uploadPictureToInvitation/**").permitAll()
-	.antMatchers("/uploadPicturee/**").permitAll()
+	.antMatchers("/uploadPicture/**").permitAll()
 	.antMatchers("/css/**").permitAll()
 	.antMatchers("/images/**").permitAll()
+	.antMatchers("/api/**").permitAll()
+	.antMatchers("/sendEmail/**").permitAll()
+	.antMatchers("/sendEmailwithAttachmentss/**").permitAll()
+	.antMatchers("/add/**").permitAll()
+	.antMatchers("/stat/gfffff**").permitAll()
+	.antMatchers("/gfffff/**").permitAll()
+
+	.antMatchers("/stat/{employe}**").permitAll()
+	.antMatchers("/stat/***").permitAll()
+
+	.antMatchers("/home/**").permitAll()
 
 	.antMatchers("/retrieve-all-clients").access("hasRole('ADMIN')")
 	.anyRequest()

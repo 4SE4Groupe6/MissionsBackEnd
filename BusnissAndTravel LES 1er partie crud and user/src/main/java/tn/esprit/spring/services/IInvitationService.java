@@ -15,4 +15,5 @@ public interface IInvitationService {
 
 	Invitation updateInvitation (Invitation I);
 
+	
 }

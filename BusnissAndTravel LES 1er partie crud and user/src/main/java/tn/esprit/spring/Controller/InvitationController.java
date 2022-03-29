@@ -70,7 +70,7 @@ return innv.updateInvitation(invitation);
 
 public Invitation uploadPictureToInvitation (@RequestParam Long invitationId, @RequestPart("file") MultipartFile file) {
 	try {
-		Invitation invitation = inv.findById(invitationId).get();
+		Invitation invitation = inv.findById(invitationId).orElse(null);
 		if (invitation != null) {
 			File directory = new File("upload//");
 			if (!directory.exists())
