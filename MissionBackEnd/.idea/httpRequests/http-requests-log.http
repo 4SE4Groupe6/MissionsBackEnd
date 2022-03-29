@@ -1,0 +1,60 @@
+PATCH http://localhost:8089/SpringMVC/servlet/add-mission"add-mission
+
+    "timestamp": "2022-02-26T10:25:02.336+00:00",
+    "status": 404,
+    "error": "Not Found",
+    "message": "No message available",
+    "path": "/SpringMVC/servlet/add-mission"add-mission
+
+###
+
+PATCH http://localhost:8089/add-mission
+
+<> 2022-02-26T113403.404.html
+
+###
+
+PATCH http://localhost:8089/add-mission
+
+<> 2022-02-26T113219.400.json
+
+###
+
+PATCH http://localhost:8089/add-mission
+
+<> 2022-02-26T112059.400.json
+
+###
+
+PATCH http://localhost:8089/add-mission
+
+<> 2022-02-26T112049.400.json
+
+###
+
+PATCH http://localhost:8089/add-mission
+
+<> 2022-02-26T111959.400.json
+
+###
+
+PATCH http://localhost:8089/add-mission
+
+<> 2022-02-26T111930.400.json
+
+###
+
+PATCH http://localhost:8089/add-mission
+
+<> 2022-02-26T111927.400.json
+
+###
+
+PATCH http://localhost:8089/add-mission
+
+###
+
+PATCH http://localhost:8089/add-mission
+
+###
+
